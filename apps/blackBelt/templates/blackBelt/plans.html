@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Plans For Trips</title>
+</head>
+<body>
+<a href="{% url 'login:logout'%}">Logout</a>
+<a href="{% url 'black:my_index'%}">Home</a>
+<h1>Add a Trip</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+<form action="addTrip" method="post">
+{% csrf_token %}
+	<p> Destination: <input type="text" name="destination" required></p>	
+	<p> Description: <input type="text" name="description" required></p>
+	<p> Travel Start Date: <input type="date" name="start" required></p>
+	<p> Travel Date To: <input type="date" name="end" required></p>
+	<input type="submit" name="submit">
+</form>
+</body>
+</html>

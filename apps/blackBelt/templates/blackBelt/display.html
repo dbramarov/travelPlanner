@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Display</title>
+</head>
+<body>
+	<a href="{% url 'login:logout'%}">Logout</a>
+	<a href="{% url 'black:my_index'%}">Home</a>
+
+	
+	<h1>Trip Name:{{myTrips.travel.destination}}</h1>
+	<p>Planned By: {{myTrips.user.name}}</p>
+	<p>Description: {{myTrips.travel.plans}}</p>
+	<p>Travel Date From: {{myTrips.travel.start}}</p>
+	<p>Travel Date To: {{myTrips.travel.end}}</p>
+	<hr>
+
+	<h1>Other Users' joining the trip:</h1>
+	
+	{%for people in otherpeople %}
+	<p>{{people.user.name}}</p>
+	{%endfor%}
+</body>
+</html>
